@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# a script that does not work
+for i in *;do echo "$file" |cut -f2 -d'-';done
