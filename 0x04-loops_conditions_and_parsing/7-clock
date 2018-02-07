@@ -2,14 +2,16 @@
 # a Bash script that displays the time
 HOUR=0
 MIN=1
-	echo 'Hour: '$HOUR''
-	while [ $HOUR -le 11 ]; do
+	echo 'Hour:' $HOUR
+	while [ $HOUR -le 12 ]; do
 		echo $MIN
 		case $MIN in
 		59)
 			let MIN=0
 			let HOUR=HOUR+1
-			echo 'Hour: '$HOUR'' ;;
+			if [ $HOUR -lt 13 ]; then
+				echo 'Hour:' $HOUR
+			fi
 		esac
 		let MIN=MIN+1
 	done
