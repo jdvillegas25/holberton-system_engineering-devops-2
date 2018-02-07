@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# advanced
+`cat /etc/passwd` | while read line
+do 
+	echo "$line" | cut -d':' -f 1, 4, 6
+done
