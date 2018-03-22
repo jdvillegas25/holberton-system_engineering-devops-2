@@ -5,4 +5,6 @@ sudo apt-get -y install nginx
 sudo chmod 777 /usr/share/nginx/html/index.html
 echo "Holberton School" > /usr/share/nginx/html/index.html
 sed -i "38i\tlocation\s/redirect_me\s{\n\t\trewrite ^/(.*)$ https://www.youtube.com/watch?v=QH2-TGUlwu4\spermanent;\n\t}"
-service nginx restart
+sudo service nginx restart
+sed -i "29i\terror_page\s404\s/custom_404.html;\n\tlocation\s/custom_404.html\s{\n\t\troot\s/usr/share/nginx/html;\n\t\tinternal;\n\t"
+sudo service nginx restart
