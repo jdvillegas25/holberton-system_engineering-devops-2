@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # comment
-
+sudo apt upgrade
+sudo apt install haproxy
