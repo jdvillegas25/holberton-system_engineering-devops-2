@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # running a script from stack overflow
-service nginx start
 rm /etc/nginx/sites-enabled/* 
 ln -s /etc/nginx/sites-available/* /etc/nginx/sites-enabled/*
 service nginx restart
