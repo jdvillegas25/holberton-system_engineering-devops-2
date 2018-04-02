@@ -2,5 +2,5 @@
 # comment
 sudo apt upgrade
 sudo apt-get -y install nginx
-sudo sed -i "23iadd_header X-Served-By: $HOSTNAME" /etc/nginx/sites-available/default
+sudo sed -i "23i\add_header X-Served-By: $HOSTNAME;" /etc/nginx/sites-available/default
 sudo service nginx restart
