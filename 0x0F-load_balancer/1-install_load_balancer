@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 # comment
-sudo apt upgrade
-sudo apt install -y haproxy
+apt-get install software-properties-common
+add-apt-repository ppa:vbernat/haproxy-1.8
+apt-get update
+apt-get install -y haproxy=1.8.\*
 sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/haproxy
 sudo sed -i '25i\listen appname 0.0.0.0:80\n\balance roundrobin\n\mode http\n \server 224-web-01 34.230.90.165:80 check\n\server 224-web-02 54.243.17.82:80 check' /etc/haproxy/haproxy.cfg
 sudo service haproxy restart
