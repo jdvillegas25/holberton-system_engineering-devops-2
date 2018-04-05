@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# comment
+su - "$1" 
+whoami 
