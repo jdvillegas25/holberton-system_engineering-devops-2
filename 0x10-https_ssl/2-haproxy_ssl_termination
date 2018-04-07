@@ -43,6 +43,9 @@ defaults
 
 frontend www-http
 	bind *:80
+	bind *:443 ssl crt /etc/haproxy/ssl/personalspace.pem
+	redirect scheme https if !{ ssl_fc }
+	mode http
 	reqadd X-Forwarded-Proto:\ http
 	default_backend www-backend
 
@@ -60,6 +63,8 @@ backend www-backend
 	balance roundrobin
 	server 224-web-01 34.230.90.165:80 check
 	server 224-web-02 54.243.17.82:80 check
+	http-request set-header X-Forwarded-Port %[dst_port]
+    http-request add-header X-Forwarded-Proto https if { ssl_fc }
 
 backend letsencrypt-backend
 	server letsencrypt 127.0.0.1:54321
