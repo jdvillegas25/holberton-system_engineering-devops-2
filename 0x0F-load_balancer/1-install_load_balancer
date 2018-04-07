@@ -6,7 +6,7 @@ sudo add-apt-repository -y ppa:vbernat/haproxy-1.8
 sudo apt-get -y update
 sudo apt-get install -y haproxy=1.8.\*
 sudo sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/haproxy
-sudo sed -i '40i\listen appname 0.0.0.0:80\n\tbind 0:80\n\tbalance roundrobin\n\tmode http\n\tserver 224-web-01 34.230.90.165:80 check\n\tserver 224-web-02 54.243.17.82:80 check\n' /etc/haproxy/haproxy.cfg
+sudo sed -i '40i\ listen appname 0.0.0.0:80\n\tbind 0:80\n\tbalance roundrobin\n\tmode http\n\tserver 224-web-01 34.230.90.165:80 check\n\tserver 224-web-02 54.243.17.82:80 check\n' /etc/haproxy/haproxy.cfg
 sudo apt-get install -y nginx
 sudo service haproxy start
 sudo service nginx start
