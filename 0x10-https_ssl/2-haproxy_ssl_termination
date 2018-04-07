@@ -52,14 +52,11 @@ frontend www-https
 	acl letsencrypt-acl path_beg /.well-known/acme-challenge/
 	use_backend letsencrypt-backend if letsencrypt-acl
 	default_backend www-backend
-# https://serversforhackers.com/c/letsencrypt-with-haproxy+&cd=2&hl=en&ct=clnk&gl=us
 
 backend www-backend
 	redirect scheme https if !{ ssl_fc }
-	balance roundrobin
-       	server 224-web-01 34.230.90.165:80 check
+    server 224-web-01 34.230.90.165:80 check
 	server 224-web-02 54.243.17.82:80 check
 
 backend letsencrypt-backend
 	server letsencrypt 127.0.0.1:54321
-# https://www.digitalocean.com/community/tutorials/how-to-secure-haproxy-with-let-s-encrypt-on-ubuntu-14-04+&cd=2&hl=en&ct=clnk&gl=us
