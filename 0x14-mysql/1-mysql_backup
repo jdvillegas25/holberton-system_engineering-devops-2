@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # generates a MySQL dump and creates a compressed archive
-mysqldump --all-databases --single-transaction --user=root --password=”$1” > backup.sql 
-gzip -cq9 backup.sql > $(date +%d-%m-%Y).tar.gz
+mysqldump --all-databases --user=root --password=$1 > backup.sql 
+gzip -c backup.sql > $(date +%d-%m-%Y).tar.gz
