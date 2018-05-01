@@ -16,7 +16,6 @@ if __name__ == "__main__":
 
     userId = sys.argv[1]
     username = r.json()['username']
-    print('this is the Id: {}'.format(userId))
     val = []
     for obj in p.json():
         dic = {}
