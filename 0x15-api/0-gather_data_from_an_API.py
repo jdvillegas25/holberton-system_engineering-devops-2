@@ -28,4 +28,4 @@ if __name__ == "__main__":
             ln.append(obj['title'])
     print('Employee {} is done with tasks({}/{}):'.format(nm, tr, tl))
     for line in ln:
-        print('  ' + line)
+        print('\t {}'.format(line))
