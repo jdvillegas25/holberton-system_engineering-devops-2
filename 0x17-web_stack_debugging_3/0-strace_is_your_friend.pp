@@ -1,5 +1,6 @@
 # phpp to php
-exec { '/var/www/html/wp-settings.php':  
-path    => [ '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin' ],  
-command => "sed -i 's/.phpp/.php/g' /var/www/html/wp-settings.php",
+exec { 'fix file typo':
+path    => [ '/usr/bin', '/bin', '/usr/sbin' ],
+cwd     => '/var/www/html/wp-includes',
+command => 'mv class-wp-locale.phpp class-wp-locale.php',
 }
