@@ -7,5 +7,5 @@ respawn
 setuid ubuntu
 setgid www-data
 
-chdir /home/ubuntu/AirBnB_clone_v4/web_flask/
-exec gunicorn -w 3 -b 127.0.0.0:8000 -m 007 0-hello_route:app
+chdir /home/ubuntu/AirBnB_clone_v4
+exec gunicorn -w 3 -b 127.0.0.1:8000 -m 007 wsgi.wsgi:web_flask.app
